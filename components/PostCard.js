@@ -35,6 +35,7 @@ const PostCard = ({post}) => {
 
             getAuthorData();
     }, [])
+    
     return(
         <Link href={`/post/${post.id}`}>
         <div className={styles.container}>
@@ -74,7 +75,7 @@ const PostCard = ({post}) => {
                     <div className={styles.image}>
                     <Image 
                         className={styles.postImg}  
-                        src={post?.data.bannerImage}
+                        src={post.data.bannerImage}
                         height={200}
                         width={250}/>
                     </div>
