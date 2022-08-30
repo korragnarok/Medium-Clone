@@ -22,13 +22,13 @@ const Trending = ({post}) => {
 
 
     const [authorData, setAuthorData] = useState(null);
-
+    const [newdat,setdat] = usestate([])
     useEffect(() => {
         const getAuthorData = async () => {
             setAuthorData(
                 (await  getDoc(doc(db, 'users', post.data.author))).data(), '😎'
             )}
-
+            setdat = authorData.slice(0,6)
             getAuthorData();
     }, [post])
     
