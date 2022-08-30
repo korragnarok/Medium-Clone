@@ -16,6 +16,11 @@ export default function Home() {
   const { posts } = useContext(MediumContext);
 
   console.log(posts);
+   const [tar,settar] = usestate([]);
+    useEffect(() => {
+    settar(posts.slice(0,6)
+  }[post]);
+
 
   return (
     <div>
@@ -26,12 +31,12 @@ export default function Home() {
           <div>Trending on medium</div>
       </div>
       <div className={styles.container}>
-        {posts.map((post) => (
+        {tar.map((post) => (
           <Trending post={post} key={post.id}/>
         ))}
       </div>
       <div>
-        {posts.map((post) => (
+        {tar.map((post) => (
           <Post post={post} key={post.id}/>
         ))}
       </div>
