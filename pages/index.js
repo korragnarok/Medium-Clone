@@ -8,13 +8,14 @@ import { MediumContext } from '../context/MediumContext';
 import { useContext } from 'react';
 
 const styles = {
-    container: 'grid grid-cols-3 gap-10 pr-10 w-full mb-[100px] pt-10 pb-10 pl-[5rem] border-b-2',
-    heading: 'flex gap-3 font-bold uppercase text-xs tracking-widest pt-3',
+    container: 'grid grid-cols-3 gap-y-5 pr-[8rem] w-full mb-[100px] pt-10 pb-10 pl-[1rem] border-b-2',
+    heading: 'flex gap-3 font-bold uppercase text-xs tracking-widest pt-3 pl-[2rem]',
 }
 
 export default function Home() {
-  
   const { posts } = useContext(MediumContext);
+
+  console.log(posts);
 
   return (
     <div>

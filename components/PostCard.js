@@ -2,25 +2,26 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Star from '../assets/star.png'
 import { useEffect, useState } from 'react';
-import { getDoc, doc } from 'firebase/firestore';
+import { collection, getDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase';
 
 
 const styles = {
-    container: 'w-[100%]',
+    container: 'w-[100%] pl-[5rem]',
     wrap: 'flex justify-between',
     content: 'flex justify-between items-center px-[5rem] pb-[2rem]',
     authorWrap: '',
     contentWrap: '',
     authorImg: 'rounded-full object-cover cursor-pointer',
     author: 'text-sm cursor-pointer',
-    title: 'text-2xl font-bold pt-1 cursor-pointer w-[250px]',
-    brief: 'text-gray-500 font-light',
+    title: 'text-2xl font-bold pt-1 cursor-pointer w-[450px]',
+    brief: 'text-gray-500 font-light w-[350px]',
     infoWrap: 'text-gray-500 text-[12px] flex items-center gap-2 text-sm',
     info: '',
-    tag: 'text-[12px] bg-gray-100 rounded-xl px-2 py-[0.5rem] cursor-pointer',
+    tag: 'text-[12px] bg-gray-100 rounded-xl px-2 py-[0.15rem] cursor-pointer',
     star: '',
     postImg: 'absolute right-5 object-cover',
+    thumbnailImg: 'ml-[25rem]'
 }
 
 const PostCard = ({post}) => {
@@ -34,8 +35,7 @@ const PostCard = ({post}) => {
             )}
 
             getAuthorData();
-    }, [])
-    
+    }, [post])
     return(
         <Link href={`/post/${post.id}`}>
         <div className={styles.container}>
@@ -43,11 +43,13 @@ const PostCard = ({post}) => {
                 <div className={styles.content}>
                     <div className={styles.contentWrap}>
                         <div className={styles.authorWrap}>
-                        <Image 
-                            className={styles.authorImg}
-                            src={authorData?.imageUrl}
-                            height={50}
-                            width={50}/>
+                            {authorData?.imageUrl && ( 
+                                <Image 
+                                    className={styles.authorImg}
+                                    src={authorData?.imageUrl}
+                                    height={50}
+                                    width={50}/>
+                            )}                        
                         <div className={styles.author}>{authorData?.name}</div>
                     </div>
                     <div className={styles.title}>{post.data.title}</div>
@@ -72,12 +74,12 @@ const PostCard = ({post}) => {
                     </div>
                     </div>
                     
-                    <div className={styles.image}>
-                    <Image 
+                    <div className={styles.thumbnailImg}>
+                        { post.data.thumbnail && <Image 
                         className={styles.postImg}  
-                        src={post.data.bannerImage}
+                        src={post.data.thumbnail}
                         height={200}
-                        width={250}/>
+                        width={250}/>}
                     </div>
                 </div>
             </div>

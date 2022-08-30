@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyC1rJLG-pluegpu52YsV6xT4QJgERqxM-k",
   authDomain: "medium-clone-48268.firebaseapp.com",

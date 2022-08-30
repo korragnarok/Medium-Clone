@@ -4,7 +4,8 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['res.cloudinary.com',
-      'images.unsplash.com'],
+      'images.unsplash.com',
+      "lh3.googleusercontent.com"],
   }
 }
 
