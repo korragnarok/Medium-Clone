@@ -21,15 +21,12 @@ const styles = {
 const Trending = ({post}) => {
 
 
-    const [authorData, setAuthorData] = useState(null);
-    const [newdat,setdat] = usestate([])
+    const [authorData, setAuthorData] = useState([]);
     useEffect(() => {
         const getAuthorData = async () => {
             setAuthorData(
                 (await  getDoc(doc(db, 'users', post.data.author))).data(), '😎'
             )}
-            setdat = authorData.slice(0,6)
-            getAuthorData();
     }, [post])
     
     return(
