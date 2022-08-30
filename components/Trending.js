@@ -20,9 +20,9 @@ const styles = {
 
 const Trending = ({post}) => {
 
+    const [newdat,setdat] = useState([])
 
     const [authorData, setAuthorData] = useState([]);
-    const [newdat,setdat] = useState([])
 
     useEffect(() => {
         const getAuthorData = async () => {

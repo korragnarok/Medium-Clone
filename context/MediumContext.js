@@ -23,6 +23,8 @@ const MediumProvider = ({ children }) => {
                         ...doc.data()
                     }
                 }
+
+                cons
             }));
         }
 

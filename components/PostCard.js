@@ -21,7 +21,7 @@ const styles = {
     tag: 'text-[12px] bg-gray-100 rounded-xl px-2 py-[0.15rem] cursor-pointer',
     star: '',
     postImg: 'absolute right-5 object-cover',
-    thumbnailImg: 'ml-[25rem]'
+    thumbnailImg: ''
 }
 
 const PostCard = ({post}) => {
